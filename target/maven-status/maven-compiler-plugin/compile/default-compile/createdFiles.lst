@@ -1,9 +1,0 @@
-org\aafalu\utilities\App.class
-org\aafalu\utilities\extentreport\ExtentManager.class
-org\aafalu\pages\OrderConfirmationPage.class
-org\aafalu\pages\PaymentPage.class
-org\aafalu\pages\HomePage.class
-org\aafalu\pages\LandingPage.class
-org\aafalu\pages\CheckoutPage.class
-org\aafalu\base\AafaluBase.class
-org\aafalu\utilities\ConfigLoader.class

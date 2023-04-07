@@ -49,7 +49,9 @@ public class TestListener extends AafaluBaseTest implements ITestListener {
 
     @Override
     public void onFinish(ITestContext context) {
+
         extent.flush();
+
     }
 
 }
