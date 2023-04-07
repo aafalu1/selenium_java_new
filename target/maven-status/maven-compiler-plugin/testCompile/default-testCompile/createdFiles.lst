@@ -1,0 +1,8 @@
+org\aafalu\testcases\OrderConfirmationPageTest.class
+org\aafalu\testcases\PaymentPageTest.class
+org\aafalu\test\util\listners\TestListener.class
+org\aafalu\testcases\HomePageTest.class
+org\aafalu\testcases\AddScreenshotsDemo.class
+org\aafalu\base\AafaluBaseTest.class
+org\aafalu\testcases\CheckoutPageTest.class
+org\aafalu\testcases\LoginPageTest.class
