@@ -6,15 +6,9 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.aafalu.base.AafaluBaseTest;
 import org.aafalu.utilities.extentreport.ExtentManager;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import java.util.Objects;
-
 
 public class TestListener extends AafaluBaseTest implements ITestListener {
     ExtentTest extentTest;
@@ -38,7 +32,7 @@ public class TestListener extends AafaluBaseTest implements ITestListener {
     public void onTestFailure(ITestResult result) {
         exTest.get().fail(result.getThrowable());
         Object testClass = result.getInstance();
-        WebDriver driver = ((AafaluBaseTest) testClass).getDriver();
+        driver = ((AafaluBaseTest) testClass).getDriver();
         String base64Screenshot =takeScreenshotInCaseOFTestFailure(driver);
         //ExtentReports log and screenshot operations for failed tests.
         exTest.get().log(Status.FAIL, "Test Failed",

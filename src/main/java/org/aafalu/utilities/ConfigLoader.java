@@ -14,7 +14,7 @@ public class ConfigLoader {
 
     private ConfigLoader() {
         Path configPath = Paths.get(App.PROJECT_DIR, "src", "main", "resources", "configuration",
-                "automationconfig.properties");
+                "config.properties");
         try (FileInputStream fis = new FileInputStream(configPath.toFile())) {
             prop = new Properties();
             prop.load(fis);
@@ -37,6 +37,14 @@ public class ConfigLoader {
 
     public String getStringValue(String key){
         return prop.getProperty(key);
+    }
+
+    public boolean getBooleanValue(String key){
+        try {
+            return Boolean.parseBoolean(prop.getProperty(key));
+        } catch (NullPointerException | IllegalArgumentException e) {
+            return false;
+        }
     }
 
 }

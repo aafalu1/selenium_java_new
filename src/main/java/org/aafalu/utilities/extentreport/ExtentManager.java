@@ -11,7 +11,7 @@ public class ExtentManager {
     public synchronized static ExtentReports createExtentReports() {
         String directory= App.Exient_Report;
         ExtentSparkReporter reporter = new ExtentSparkReporter(directory);
-        reporter.config().setReportName("Sample Extent Report");
+        reporter.config().setReportName("Aafalu Automation Report");
         reporter.config().setTheme(Theme.DARK);
         extentReports.attachReporter(reporter);
         extentReports.setSystemInfo("Blog Name", "Aafalu Automation");
