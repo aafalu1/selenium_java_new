@@ -44,12 +44,12 @@ public class AafaluBaseTest {
         String browserName = System.getProperty("browser", AafaluBase.configLoader.getStringValue("browser"));
         switch (browserName.toLowerCase()) {
             case "chrome":
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 if (AafaluBase.configLoader.getBooleanValue("headless")) {
                     System.out.println("Running on headless mode : ");
                     chromeOptions.addArguments("headless");
                 }
-                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "edge":
