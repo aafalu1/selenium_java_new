@@ -4,6 +4,7 @@ import org.aafalu.base.AafaluBaseTest;
 import org.aafalu.pages.HomePage;
 import org.aafalu.pages.OrderConfirmationPage;
 import org.aafalu.pages.PaymentPage;
+import org.aafalu.test.utilities.TestCredentials;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,7 +17,7 @@ public class OrderConfirmationPageTest extends AafaluBaseTest {
     @Test
 
     public void userSuccessfullyAddToProduct(){
-        hp=landingPage.doLogin("aafalu@yahoo.com", "Aafalu#1");
+        hp=landingPage.doLogin(TestCredentials.email(), TestCredentials.password());
         String productName = "zara coat 3";
         hp.clickOnAddtoCart(productName);
         pp=checkoutPage.clickOnCheckoutBtn();

@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class AafaluBase {
 
     protected WebDriver driver;
@@ -26,12 +28,12 @@ public class AafaluBase {
     }
 
     protected void waitForElementToLoad(By byEle) {
-        synchWait = new WebDriverWait(driver, 20);
+        synchWait = new WebDriverWait(driver, Duration.ofSeconds(20));
         synchWait.until(ExpectedConditions.visibilityOfElementLocated(byEle));
     }
 
     protected void waitForElementToDisappear(By byEle) {
-        synchWait = new WebDriverWait(driver, 20);
+        synchWait = new WebDriverWait(driver, Duration.ofSeconds(20));
         synchWait.until(ExpectedConditions.invisibilityOfElementLocated(byEle));
     }
 

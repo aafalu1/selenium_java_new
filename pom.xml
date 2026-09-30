@@ -9,18 +9,17 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium-javaVersion>3.141.59</selenium-javaVersion>
-        <selenium-testNGVersion>7.7.1</selenium-testNGVersion>
-        <selenium-webDrivermanagerVersion>5.3.2</selenium-webDrivermanagerVersion>
-        <sl4jVersion>2.0.7</sl4jVersion>
+        <maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
+        <selenium-javaVersion>4.49.0</selenium-javaVersion>
+        <selenium-testNGVersion>7.12.0</selenium-testNGVersion>
+        <selenium-webDrivermanagerVersion>6.4.0</selenium-webDrivermanagerVersion>
+        <slf4jVersion>2.0.20</slf4jVersion>
+        <logbackVersion>1.6.4</logbackVersion>
         <SuiteXmlFile>src/main/resources/testNG.xml</SuiteXmlFile>
-        <extentReportVersion>5.0.9</extentReportVersion>
-        <mavenCompilerVersion>3.8.1</mavenCompilerVersion>
+        <extentReportVersion>5.1.2</extentReportVersion>
+        <mavenCompilerVersion>3.14.1</mavenCompilerVersion>
     </properties>
 
     <dependencies>
@@ -45,12 +44,12 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>${logbackVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${sl4jVersion}</version>
+            <version>${slf4jVersion}</version>
         </dependency>
 
         <!-- Extent Report dependency -->
@@ -72,10 +71,11 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${mavenCompilerVersion}</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <release>${maven.compiler.release}</release>
                 </configuration>
             </plugin>
             <plugin>
@@ -86,7 +86,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <argLine>--illegal-access=permit</argLine>
                 </configuration>
             </plugin>
         </plugins>
