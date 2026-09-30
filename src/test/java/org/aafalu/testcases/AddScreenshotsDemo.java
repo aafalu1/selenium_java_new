@@ -7,6 +7,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aafalu.utilities.App;
+import org.aafalu.test.utilities.TestCredentials;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,7 +20,7 @@ import org.testng.annotations.Test;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class AddScreenshotsDemo {
    static WebDriver driver =null;
@@ -29,13 +30,13 @@ public class AddScreenshotsDemo {
         WebDriverManager.chromiumdriver().setup();
         driver=new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://rahulshettyacademy.com/client");
         WebElement email= driver.findElement(By.id("userEmail"));
         WebElement password= driver.findElement(By.id("userPassword"));
         WebElement loginBtn= driver.findElement(By.id("login"));
-        email.sendKeys("aafalu@yahoo.com");
-        password.sendKeys("Aafalu#1");
+        email.sendKeys(TestCredentials.email());
+        password.sendKeys(TestCredentials.password());
         loginBtn.click();
         WebElement homeText= driver.findElement(By.xpath("//button[1][text()=' HOME ']"));
         Assert.assertEquals(homeText.getText(), "HOME");

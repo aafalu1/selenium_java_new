@@ -1,13 +1,14 @@
 package org.aafalu.testcases;
 
 import org.aafalu.base.AafaluBaseTest;
+import org.aafalu.test.utilities.TestCredentials;
 import org.testng.annotations.Test;
 
 public class PaymentPageTest extends AafaluBaseTest {
 
      @Test
      public void testConfirmationPage(){
-         landingPage.doLogin("aafalu@yahoo.com", "Aafalu#1");
+         landingPage.doLogin(TestCredentials.email(), TestCredentials.password());
          String productName = "zara coat 3";
          homePage.clickOnAddtoCart(productName);
          checkoutPage.clickOnCheckoutBtn();
